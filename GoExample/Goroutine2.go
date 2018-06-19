@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"runtime"
 )
 
 func say(s string) {
@@ -12,29 +12,31 @@ func say(s string) {
 }
 
 func main() {
-/*
-	say("Sync")
+	/*
+		say("Sync")
 
-	go say("Async1")
-	go say("Async2")
-	go say("Async3")
+		go say("Async1")
+		go say("Async2")
+		go say("Async3")
 
-	time.Sleep(time.Second * 3)
-*/
+		time.Sleep(time.Second * 3)
+	*/
 
-//anonymous function
-  var wait sync.WaitGroup // 
-  wait.Add(2)
+	/* anonymous function
+	   var wait sync.WaitGroup //
+	   wait.Add(2)
 
-  go func(){
-    defer wait.Done()
-    fmt.Println("Hello")
-  }
+	   go func(){
+	     defer wait.Done()
+	     fmt.Println("Hello")
+	   }
 
-  go func(msg string){
-    defer wait.Done()
-    fmt.Println(msg)
-  }("Hi")
+	   go func(msg string){
+	     defer wait.Done()
+	     fmt.Println(msg)
+	   }("Hi")
 
-  wait.Wait()
+	   wait.Wait()
+	*/
+	runtime.GOMAXPROCS(4) // for multi CPU
 }
