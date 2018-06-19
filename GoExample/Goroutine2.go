@@ -12,6 +12,7 @@ func say(s string) {
 }
 
 func main() {
+/*
 	say("Sync")
 
 	go say("Async1")
@@ -19,4 +20,21 @@ func main() {
 	go say("Async3")
 
 	time.Sleep(time.Second * 3)
+*/
+
+//anonymous function
+  var wait sync.WaitGroup // 
+  wait.Add(2)
+
+  go func(){
+    defer wait.Done()
+    fmt.Println("Hello")
+  }
+
+  go func(msg string){
+    defer wait.Done()
+    fmt.Println(msg)
+  }("Hi")
+
+  wait.Wait()
 }
