@@ -3,7 +3,7 @@
 // decimal integers. Operators and operands should be space
 // delimited
 
-package Eval 
+package Eval
 
 import (
 	"strconv"
@@ -16,7 +16,7 @@ func Eval(expr string) int {
 
 	// pop is function literal
 	pop := func() int {
-		last := nums[len(nums)] - 1
+		last := nums[len(nums)-1]
 		nums = nums[:len(nums)-1]
 		return last
 	}
@@ -57,7 +57,6 @@ func Eval(expr string) int {
 			ops = append(ops, token)
 		case ")":
 			reduce("+-*/(")
-			ops = append(ops, token)
 		default:
 			num, _ := strconv.Atoi(token)
 			nums = append(nums, num)
