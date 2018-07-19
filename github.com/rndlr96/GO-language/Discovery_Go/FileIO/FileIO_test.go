@@ -15,7 +15,7 @@ func ExampleWriteTo() {
 	if err := WriteTo(os.Stdout, lines); err != nil {
 		fmt.Println(err)
 	}
-	// Outputs:
+	// Output:
 	// text1
 	// text2
 	// text3
@@ -29,5 +29,5 @@ func ExampleReadFrom() {
 	}
 	fmt.Println(lines)
 	// Output:
-	// [text1 tefdsxt2 text3]
+	// [text1 text2 text3]
 }
