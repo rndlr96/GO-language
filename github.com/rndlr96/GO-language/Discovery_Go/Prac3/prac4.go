@@ -15,6 +15,10 @@ func NewMultiSet() map[string]int {
 func Insert(m map[string]int, val string) {
 	var err error
     index := rand.Intn(99999)
+	for m[strconv.Itoa(index)] != 0 {
+		index = rand.Intn(99999)
+	}
+
 	if m[strconv.Itoa(index)], err = strconv.Atoi(val); err != nil {
 		fmt.Println(err)
 	}
