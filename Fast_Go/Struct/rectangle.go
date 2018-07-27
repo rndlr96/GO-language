@@ -16,11 +16,11 @@ func rectangleScaleB(rect Rectangle, factor int) {
 }
 
 func (rect *Rectangle) ScaleA(factor int) {
-    rect.width = rect.width * factor
-    rect.height = rect.height * factor
+	rect.width = rect.width * factor
+	rect.height = rect.height * factor
 }
 
 func (rect Rectangle) ScaleB(factor int) {
-    rect.width = rect.width * factor
-    rect.height = rect.height * factor
+	rect.width = rect.width * factor
+	rect.height = rect.height * factor
 }
