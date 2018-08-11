@@ -7,16 +7,15 @@ func ProductFib(prod uint64) [3]uint64 {
 	var result, find1, find2 uint64
 	var tmp int
 
-	for i := 2; result <= prod; i++ {
-		find1 = ratio(i)
-		find2 = ratio(i + 1)
+	for tmp = 2; result <= prod; tmp++ {
+		find1 = ratio(tmp)
+		find2 = ratio(tmp + 1)
 		result = find1 * find2
 		if result == prod {
 			return [3]uint64{find1, find2, 1}
 		}
-		tmp = i
 	}
-	return [3]uint64{ratio(tmp), ratio(tmp + 1), 0}
+	return [3]uint64{ratio(tmp - 1), ratio(tmp), 0}
 }
 
 func ratio(n int) uint64 {
