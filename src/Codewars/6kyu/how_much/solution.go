@@ -5,6 +5,10 @@ import "strconv"
 func HowMuch(m int, n int) [][3]string {
     var results [][3]string
 
+    if m < 0 || n < 0 {
+      return nil
+    }
+
     if (m > n) {
         m, n = n, m
     }
