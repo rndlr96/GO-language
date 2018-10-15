@@ -2,6 +2,7 @@ package kata
 
 import (
 	"unicode"
+	"fmt"
 )
 
 func Accum(s string) string {
