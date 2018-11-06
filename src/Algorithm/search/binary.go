@@ -25,6 +25,23 @@ func insert_tree(root *node, val int) *node {
   return root
 }
 
+func search_tree(root *node, val int) *node {
+  if root == nil {
+    fmt.Println("search fail")
+    return nil
+  } else {
+    if root.val == val {
+      fmt.Println("search success")
+      return root
+    } else if root.val < val {
+      root.right = search_tree(root.right, val)
+    } else if root.val > val {
+      root.left = search_tree(root.left, val)
+    }
+  }
+  return root
+}
+
 func print_tree(root *node) int {
     if root == nil {
       return 0
@@ -47,5 +64,7 @@ func main(){
   root = insert_tree(root, 9)
   root = insert_tree(root, 6)
 
-  print_tree(root)
+  search_tree(root, 8)
+  search_tree(root, 1)
+
 }
