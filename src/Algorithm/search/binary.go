@@ -12,7 +12,7 @@ type node struct {
 
 func insert_tree(root *node, val int) *node {
   if root == nil {
-    root := new(node)
+    root = new(node)
     root.val = val
     root.left, root.right = nil, nil
   } else {
@@ -42,7 +42,10 @@ func main(){
 
   root = insert_tree(root, 5)
   root = insert_tree(root, 3)
-
+  root = insert_tree(root, 7)
+  root = insert_tree(root, 1)
+  root = insert_tree(root, 9)
+  root = insert_tree(root, 6)
 
   print_tree(root)
 }
