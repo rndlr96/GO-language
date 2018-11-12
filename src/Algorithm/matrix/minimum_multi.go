@@ -13,6 +13,7 @@ type optimal struct {
   start int
   k int
   end int
+	val int
 }
 
 const (
@@ -20,7 +21,7 @@ const (
 )
 // parameter : matrix array for calculate multiple amount
 // return : minimum multiple amount
-func minMulti(price *[5][5]optimal, array []matrix, start int, end int) int {
+func minMulti(price *[5][5]optimal, array []matrix, start int, end int, calc *int) int {
 
 	count := 0
   min := MaxInt
@@ -30,16 +31,17 @@ func minMulti(price *[5][5]optimal, array []matrix, start int, end int) int {
   }
 
 	for i := start; i < end; i++ {
-		count = minMulti(price, array, start, i) +
-            minMulti(price, array, i+1, end) +
+		count = minMulti(price, array, start, i, calc) +
+            minMulti(price, array, i+1, end, calc) +
             array[start].row * array[i].column * array[end].column
 
-
+		*calc++
 		if count < min {
 			min = count
       price[start][end].start = start+1
       price[start][end].k = i+1
       price[start][end].end = end+1
+			price[start][end].val = count
 		}
 	}
 
@@ -48,6 +50,8 @@ func minMulti(price *[5][5]optimal, array []matrix, start int, end int) int {
 
 func main() {
 	// generate matrix struct array and init each matrix row, column
+	calc := 0
+
 	var matrix_array = []matrix{
 		matrix{
 			row:    2,
@@ -73,9 +77,14 @@ func main() {
 
   price := [5][5]optimal{}
 
-	fmt.Println("Minimum Calculate : ",minMulti(&price, matrix_array, 0, 4))
-  for i := 0 ; i < 5 ; i++ {
-    fmt.Println(price[i])
+	fmt.Println("Minimum Calculate : ",minMulti(&price, matrix_array, 0, 4, &calc))
+	fmt.Println("calculate count : ", calc)
+	for i := 0 ; i < 5 ; i++ {
+    for j := 0 ; j < 5 ; j++ {
+      fmt.Print(price[i][j])
+      fmt.Printf("\t")
+    }
+    fmt.Println()
   }
 
 }
