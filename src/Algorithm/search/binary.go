@@ -25,21 +25,28 @@ func insert_tree(root *node, val int) *node {
   return root
 }
 
-func search_tree(root *node, val int) *node {
+func search_tree(root *node, val int) {
   if root == nil {
     fmt.Println("search fail")
-    return nil
   } else {
     if root.val == val {
       fmt.Println("search success")
-      return root
     } else if root.val < val {
       root.right = search_tree(root.right, val)
     } else if root.val > val {
       root.left = search_tree(root.left, val)
     }
   }
-  return root
+}
+
+func delete_tree(root *node, val int) {
+  if root == nil {
+    fmt.Println("Tree is empty")
+  } else {
+    if root.val == val {
+
+    }
+  }
 }
 
 func print_tree(root *node) int {
