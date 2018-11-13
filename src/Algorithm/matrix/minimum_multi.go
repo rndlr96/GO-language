@@ -54,24 +54,24 @@ func main() {
 
 	var matrix_array = []matrix{
 		matrix{
-			row:    2,
-			column: 5,
-		},
-		matrix{
 			row:    5,
-			column: 3,
+			column: 4,
 		},
 		matrix{
-			row:    3,
-			column: 6,
+			row:    4,
+			column: 2,
 		},
 		matrix{
-			row:    6,
-			column: 10,
+			row:    2,
+			column: 4,
 		},
 		matrix{
-			row:    10,
-			column: 7,
+			row:    4,
+			column: 2,
+		},
+		matrix{
+			row:    2,
+			column: 4,
 		},
 	}
 
