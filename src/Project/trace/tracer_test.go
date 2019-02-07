@@ -19,3 +19,8 @@ func TestNew(t *testing.T) {
 		t.Errorf("Trace should not write '%s'.", buf.String())
 	}
 }
+
+func TestOff(t *testing.T){
+  var silentTracer Tracer = Off()
+  silentTracer.Trace("something")
+}
